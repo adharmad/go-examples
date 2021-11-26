@@ -5,17 +5,17 @@ import (
 	"math"
 )
 
-func pow(x, n, lim float64) float64 {
+func pow_with_limit(x, n, lim float64) float64 {
     // v is defined and used in the if/else statement only
 	if v := math.Pow(x, n); v < lim {
 		return v
 	} else {
-        fmt.Printf("%g >= %g\n", v, lim)
-    }
+	    fmt.Printf("%g >= %g\n", v, lim)
+	}
 
     // v cannot be used here
     //
-	return lim
+    return lim
 }
 
 func main() {
@@ -27,6 +27,6 @@ func main() {
         fmt.Println("i is less than or equal to 1")
     }
 
-    fmt.Println(pow(3, 2, 10), pow(3, 3, 10))
-
+    fmt.Println(pow_with_limit(3, 2, 10))
+    fmt.Println(pow_with_limit(3, 3, 10))
 }

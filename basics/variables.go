@@ -7,5 +7,6 @@ var p, q, r int = 1, 2, 3
 
 func main() {
     var i int
-	fmt.Println(i, c, python, java, p, q, r)
+    var f float32
+    fmt.Println(i, f, c, python, java, p, q, r)
 }
