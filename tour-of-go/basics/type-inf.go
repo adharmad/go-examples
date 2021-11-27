@@ -1,4 +1,5 @@
 package main
+:x
 
 import "fmt"
 
