@@ -5,27 +5,29 @@ import "fmt"
 // fibonacci is a function that returns
 // a function that returns an int.
 func fibonacci() func() int {
-    prevprev := 0
-    prev := 1
+    prev := 0
+    curr := 1
 
     return func() int {
-        if prevprev == 0 && prev == 1 {
-            prevprev, prev = prev, prevprev+prev
-            return 0
-        } else if prevprev == 1 && prev == 1 {
-            prevprev, prev = prev, prevprev+prev
-            return 1
+        var retval = 0
+        if prev == 0 && curr == 1 {
+            retval = 0
+            prev, curr = curr, curr+prev
+        } else if prev == 1 && curr == 1 {
+            prev, curr = curr, curr+prev
+            retval = 1
         } else {
-            prevprev, prev = prev, prevprev+prev
-            return prevprev
+            retval = prev
+            prev, curr = curr, curr+prev
         }
+
+        return retval
     }
 }
 
 func main() {
 	f := fibonacci()
-	for i := 0; i < 10; i++ {
+	for i := 0; i < 20; i++ {
 		fmt.Println(f())
 	}
 }
-
