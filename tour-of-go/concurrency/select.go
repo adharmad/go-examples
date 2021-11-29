@@ -20,6 +20,7 @@ func main() {
 	quit := make(chan int)
 	go func() {
 		for i := 0; i < 10; i++ {
+			// This is blocking
 			fmt.Println(<-c)
 		}
 		quit <- 0
